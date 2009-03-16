@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:wicket="http://wicket.apache.org/">
+    <wicket:head>
+          <link wicket:id="css" rel="Stylesheet" type="text/css" href="stil/jtpd.css"/>
+     </wicket:head>
+    <body>
+        <table id="izgara" wicket:id="veri" width="80%">
+            <thead>
+                <tr>
+                    <th colspan="3" align="center">Kişiler
+                       <div wicket:id="modalyeni"></div>
+                        <a href="#" wicket:id="yeni"
+                        title="Yeni Kayıt" >
+                            <img src="/wicket-pratikler/imaj/ikon/yeni.gif" border="0"></a>                             
+                    </th>
+                </tr>
+                <tr>
+                    <th>Ad</th> <th>Soyad</th> <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr wicket:id="rows">
+                    <td wicket:id="ad">ad test</td>
+                    <td wicket:id="soyad">soyad test</td>
+                    <td>                        
+                        <div wicket:id="modal"></div>
+                        <a href="#" title="Güncelle" wicket:id="guncelle">
+                            <img src="/wicket-pratikler/imaj/ikon/guncelle.gif" border="0"></a>
+                        <a href="#" title="Sil" wicket:id="sil">
+                            <img src="/wicket-pratikler/imaj/ikon/sil.gif" border="0"></a>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr><td colspan="3" align="center" wicket:id="navigator"></td></tr>
+            </tfoot>
+        </table>
+    </body>
+</html>
