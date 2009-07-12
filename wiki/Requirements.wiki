@@ -30,7 +30,16 @@ JTPD projesinin hedefleri doğrultusunda kullanılması gereken teknolojilerin b
   * Fiziksel Modelin çıkarılması ve DB tarafına uygulanması
 
 = Proje Gereksinimleri =
- 
+  * Hikaye 1 : Yazı ekleme işleminin gerçekleştirilmesi
+    # Task 1.1 : Fiziksel Modelinin Çıkarılması
+    # Task 1.2 : Logical Modelin Çıkarılması
+    # Task 1.3 : ORM konfigurasyonunun yapılması (Annotation veya hbm.xml)
+    # Task 1.4 : DAO Birim Testinin yazılması
+    # Task 1.5 : DAO sınıfının yazılması
+    # Task 1.6 : WEB arayüzünün gerçekleştirilmesi (dummy şekilde)
+    # Task 1.7 : View Katmanı için Service sınıfının birim testinin yazılması
+    # Task 1.8 : Service sınıfının yazılması
+
   * Modüllerden bağımsız authorization sisteminin (Role Yönetimi) gerçekleştirilmesi
     # *READ* [http://greybeardedgeek.net/wordpress/wp-content/uploads/2009/03/spring-security-whitepaper.pdf] Permission-Based Authorization With Spring Security 2.0
 
