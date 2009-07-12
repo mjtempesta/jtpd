@@ -20,6 +20,20 @@ JTPD projesinin hedefleri doğrultusunda kullanılması gereken teknolojilerin b
 
 = Mimari Gereksinimler =
 
+  * Generic Yapıların Oluşturulması
+    # GenericModel ve Model Sınıfları
+    # Her model için GenericDAO ve Arayüz yapıları
+    # Business Logic çağrımları için GenericService ve alt yapılarının oluşturulması
+  * Container Managed Transaction yönetiminin uygulanması
+  * Loglama Mekanizmasının oluşturulması
+    # Modüler Loglama'nın gerçekleştirilmesi
+  * Fiziksel Modelin çıkarılması ve DB tarafına uygulanması
+
+= Proje Gereksinimleri =
+ 
+  * Modüllerden bağımsız authorization sisteminin (Role Yönetimi) gerçekleştirilmesi
+    # *READ* [http://greybeardedgeek.net/wordpress/wp-content/uploads/2009/03/spring-security-whitepaper.pdf] Permission-Based Authorization With Spring Security 2.0
+
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
