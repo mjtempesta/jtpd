@@ -8,5 +8,7 @@ Add your content here.
 = Details =
 
 mvn archetype:create -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=org.jtpd -DartifactId=jtpd -Dpackaging=pom
+
 mvn archetype:create -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=org.jtpd -DartifactId=jtpd.model -Dpackaging=jar
+
 mvn archetype:create -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=org.jtpd -DartifactId=jtpd.web -Dpackaging=war
