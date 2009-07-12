@@ -1,0 +1,26 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+JTPD projesinin hedefleri doğrultusunda kullanılması gereken teknolojilerin belirlenmesi, temel mimarisinin modellenmesi, ana amaçlar doğrultusunda hedefe yönelik geliştirmelerin yapılması.
+
+= Teknolojik Gereksinimler =
+
+  * Compile, Packaging ve CIS için MAVEN kullanılacak
+  * Servlet Container olarak TOMCAT kullanılacak
+  * JEE için SPRING entegrasyonu yapılacak
+  * UI için JSF ve türev Teknolojileri kullanılacak (PrimeFaces v.b.)
+  * ORM için Hibernate kullanılacak
+  * JavaScript kodlamaları için standart paket belirlenip uygulanacak (Tartışılacak - JQuery, Prototype, Ex-GWT v.b.)
+  * Continous Integration aracı olacak Hudson veya Maven Continuum
+    # [http://continuum.apache.org/]
+    # [https://hudson.dev.java.net/]
+  * Maven Repository olarak NEXUS Repostiyory Manager [http://nexus.sonatype.org/]
+  * JUnit ve JMock ile birim test yazımı
+
+
+= Mimari Gereksinimler =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
