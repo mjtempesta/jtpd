@@ -12,10 +12,12 @@ Logical Modellerin çıkarılması ve tanımlanması
 Model sınıflarındaki id özelliğini tanımlar. Bir model id sınıfı basit olabiliceği gibi birden fazla özellikten oluşmuk complex id sınıfları da olabilir. Bu yüzden GenericID'den türeyen her alt sınıf kendisine ait constructor'a sahip olabilir.
 
 Örnek:
-
+{{{
 public abstract class GenericId {
 }
+}}}
 
+{{{
 public class IntegerId extends GenericId(){
   @ID
   private Integer id;
@@ -28,7 +30,9 @@ public class IntegerId extends GenericId(){
      return this.id;
   }
 }
+}}}
 
+{{{
 public class StudentClassRelation extends GenericId{
    @ID
    private Integer studentId;
@@ -49,7 +53,7 @@ public class StudentClassRelation extends GenericId{
       return this.classId;
    }
 }
-
+}}}
 ==GenericModel<ID extends GenericId>==
 
 
