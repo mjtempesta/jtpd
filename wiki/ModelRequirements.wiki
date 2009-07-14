@@ -33,14 +33,14 @@ public class IntegerId extends GenericId(){
 }}}
 
 {{{
-public class StudentClassRelation extends GenericId{
+public class StudentClassRelationId extends GenericId{
    @ID
    private Integer studentId;
 
    @ID
    private Integer classId;
 
-   public StudentClassRelation(Integer studentId, Integer classId){
+   public StudentClassRelationId(Integer studentId, Integer classId){
       this.studentId = studentId;
       this.classId = classId;
    }
@@ -54,7 +54,69 @@ public class StudentClassRelation extends GenericId{
    }
 }
 }}}
+
 ==GenericModel<ID extends GenericId>==
+
+Logical Modelleri oluşturan tüm sınıflar bu yapıdan türemelidir. Örnek
+
+{{{
+public abstract class GenericModel<ID extends GenericId> {
+
+    private ID id;
+
+    public GenericModel(){
+       // DO NOTHING
+    }    
+
+    public GenericModel(ID id){
+       this.id =  id;
+    }
+
+    public ID getId(){
+       return this.id;
+    }
+}
+}}}
+
+{{{
+public class Student<IntegerId> extends GenericModel<IntegerId> {
+    
+    @Column(name="FIRSTNAME")
+    private String firstName;
+
+    @Column(name="LASTNAME")    
+    private String lastName;
+
+    public String getFirstName(){
+       return this.firstName;
+    }
+
+    public String getLastName(){
+       return this.lastName;
+    }
+
+    public void setFirstName(String firstName){
+       this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName){
+       this.lastName = lastName;
+    }
+}
+}}}
+{{{
+public class StudentClassRelation<StudentClassRelationId> extends GenericModel<StudentClassRelationId> {
+   private Date registerDate;
+   
+   public Date getRegisterDate(){
+      return this.registerDate;
+   }
+
+   public void setRegisterDate(Date registerDate){
+      this.registerDate = registerDate;
+   } 
+}
+}}}
 
 
 Add your content here.  Format your content with:
