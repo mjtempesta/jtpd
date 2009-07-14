@@ -18,4 +18,5 @@ mvn archetype:create -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=or
 
 ||Module||Desc||Packaging||Depends||
 ||jtpd.model||DB Logical Models||JAR||||
-||jtpd.web||Web Framework (includes jsp, controllers)||war||jtpd.model||
+||jtpd.dao||DAO||jar||jtpd.model||
+||jtpd.web||Web Framework (includes jsp, controllers)||war||jtpd.model, jtpd.dao||
