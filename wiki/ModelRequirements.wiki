@@ -1,0 +1,59 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Logical Modellerin çıkarılması ve tanımlanması
+
+
+= Details =
+
+==GenericId==
+
+Model sınıflarındaki id özelliğini tanımlar. Bir model id sınıfı basit olabiliceği gibi birden fazla özellikten oluşmuk complex id sınıfları da olabilir. Bu yüzden GenericID'den türeyen her alt sınıf kendisine ait constructor'a sahip olabilir.
+
+Örnek:
+
+public abstract class GenericId {
+}
+
+public class IntegerId extends GenericId(){
+  @ID
+  private Integer id;
+
+  public IntegerId(Integer id){
+     this.id = id;
+  }
+
+  public Integer getId(){
+     return this.id;
+  }
+}
+
+public class StudentClassRelation extends GenericId{
+   @ID
+   private Integer studentId;
+
+   @ID
+   private Integer classId;
+
+   public StudentClassRelation(Integer studentId, Integer classId){
+      this.studentId = studentId;
+      this.classId = classId;
+   }
+
+   public Integer getStudentId(){
+      return this.studentId;
+   }
+
+   public Integer getClassId(){
+      return this.classId;
+   }
+}
+
+==GenericModel<ID extends GenericId>==
+
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
