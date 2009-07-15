@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.jtpd</groupId>
+  <artifactId>jtpd</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>jtpd</name>
+  <url>http://maven.apache.org</url>
+  <inceptionYear>2009</inceptionYear>
+  <organization>
+    <name>Java Teknolojileri ve Programcilari Dernegi</name>
+    <url>http://www.jtpd.org</url>
+  </organization>
+  <developers>
+    <developer>
+      <id>tdiler</id>
+      <name>Taner Diler</name>
+      <email>taner@jtpd.org</email>
+      <roles><role>Java Developer</role></roles>
+      <timezone>+2</timezone>
+    </developer>
+    <developer>
+      <id>aocil</id>
+      <name>Ali Ozan Cil</name>
+      <email>ozan@jtpd.org</email>
+      <roles><role>Java Developer</role></roles>
+      <timezone>+2</timezone>
+    </developer>
+    <developer>
+      <id>aaltintas</id>
+      <name>Altug B. Altintas</name>
+      <email>altug@jtpd.org</email>
+      <roles><role>Java Developer</role></roles>
+      <timezone>+2</timezone>
+    </developer>
+  </developers>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+   <plugins>
+	 <plugin>
+	   <groupId>org.apache.maven.plugins</groupId>
+	   <artifactId>maven-compiler-plugin</artifactId>
+	   <version>2.0.2</version>
+	   <configuration>
+		 <source>1.5</source>
+		 <target>1.5</target>
+	   </configuration>
+	 </plugin>
+   </plugins>
+ </build>
+
+  <modules>
+    <module>jtpd.model</module>
+    <module>jtpd.web</module>
+    <module>jtpd.conf</module>
+  </modules>
+</project>
