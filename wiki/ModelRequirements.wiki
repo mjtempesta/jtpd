@@ -2,10 +2,83 @@
 
 = Introduction =
 
-Logical Modellerin çıkarılması ve tanımlanması
+*Liquibase Kullanımı
+*GenericPK ve GenericModel
+*System Models
 
 
 = Details =
+==Liquibase==
+
+Liquibase veritabanı değişikliklerini versiyonlamak için kullanılan bir araçtır. Maven, Command Line, Ant pluginleri sürekli veritabanı güncellemelerinin takibini kolaylaştırmaktadır.
+
+Maven Modülleri içerisindeki *jtpd.model* modülü içerisindeki pom.xml içerisinde ilgili liquibase maven konfigurasyonu yapılmıştır.
+
+jtpd.model/src/main/resources içerisindeki liquibase-changelog.xml içerisinde veritabanı değişikliklerini sql ve xml elementleri olarak tanımlanabilir.
+
+Kullanımı hakkından bilgi için : [http://www.liquibase.org/manual/home]
+
+örnek tanımlama :
+
+{{{
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet id="1" author="bob">
+        <comment>A sample change log</comment>
+        <createTable/>
+    </changeSet>
+    <changeSet id="2" author="bob" runAlways="true">
+        <alterTable/>
+    </changeSet>
+    <changeSet id="1" author="alice" failOnError="false" dbms="oracle">
+        <alterTable/>
+    </changeSet>
+</databaseChangeLog>
+}}}
+
+Maven üzerinden veritabanı güncellemesi için : 
+
+*mvn liquibase:update*
+
+komutu kullanılmalıdır.
+
+
+Local makinada kullanımı için pom.xml'deki 
+
+{{{
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-plugin</artifactId>
+				<version>1.9.3.0</version>
+				<configuration>
+					<changeLogFile>src/main/resources/liquibase-changelog.xml</changeLogFile>
+					<driver>com.mysql.jdbc.Driver</driver>
+					<url>jdbc:mysql://db.jtpd.com:3306/JTPD</url>
+					<username>root</username>
+					<password>****</password>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>update</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.6</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+}}}
+
+tanımlamaların değiştirilmesi gerekmektedir.
 
 ==GenericId==
 
