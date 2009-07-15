@@ -80,18 +80,18 @@ Local makinada kullanımı için pom.xml'deki
 
 tanımlamaların değiştirilmesi gerekmektedir.
 
-==GenericId==
+==GenericPK==
 
 Model sınıflarındaki id özelliğini tanımlar. Bir model id sınıfı basit olabiliceği gibi birden fazla özellikten oluşmuk complex id sınıfları da olabilir. Bu yüzden GenericID'den türeyen her alt sınıf kendisine ait constructor'a sahip olabilir.
 
 Örnek:
 {{{
-public abstract class GenericId {
+public abstract class GenericPK {
 }
 }}}
 
 {{{
-public class IntegerId extends GenericId(){
+public class IntegerIPK extends GenericPK(){
   @ID
   private Integer id;
 
@@ -106,7 +106,7 @@ public class IntegerId extends GenericId(){
 }}}
 
 {{{
-public class StudentClassRelationId extends GenericId{
+public class StudentClassRelationPK extends GenericPK{
    @ID
    private Integer studentId;
 
@@ -128,12 +128,12 @@ public class StudentClassRelationId extends GenericId{
 }
 }}}
 
-==GenericModel<ID extends GenericId>==
+==GenericModel<ID extends GenericPK>==
 
 Logical Modelleri oluşturan tüm sınıflar bu yapıdan türemelidir. Örnek
 
 {{{
-public abstract class GenericModel<ID extends GenericId> {
+public abstract class GenericModel<ID extends GenericPK> {
 
     private ID id;
 
@@ -152,7 +152,7 @@ public abstract class GenericModel<ID extends GenericId> {
 }}}
 
 {{{
-public class Student<IntegerId> extends GenericModel<IntegerId> {
+public class Student extends GenericModel<IntegerPK> {
     
     @Column(name="FIRSTNAME")
     private String firstName;
@@ -178,7 +178,7 @@ public class Student<IntegerId> extends GenericModel<IntegerId> {
 }
 }}}
 {{{
-public class StudentClassRelation<StudentClassRelationId> extends GenericModel<StudentClassRelationId> {
+public class StudentClassRelation extends GenericModel<StudentClassRelationPK> {
    private Date registerDate;
    
    public Date getRegisterDate(){
