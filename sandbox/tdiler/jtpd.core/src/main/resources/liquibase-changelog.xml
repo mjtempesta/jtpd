@@ -5,10 +5,4 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.8
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.8.xsd">
     
-    <changeSet author="tdiler" id="JTPD-1" runOnChange="false">
-        <preConditions onFail="WARN">
-            <not><tableExists tableName="USER"/></not>
-        </preConditions>
-		<sql></sql>	
-	</changeSet>
 </databaseChangeLog>
