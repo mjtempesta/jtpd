@@ -9,7 +9,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<groupId>org.jtpd</groupId>
-	<artifactId>jtpd.model</artifactId>
+	<artifactId>jtpd.core</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>jtpd.model</name>
 	<url>http://maven.apache.org</url>
@@ -46,7 +46,7 @@
 	</properties>
 
 	<build>
-		<finalName>jtpd-model</finalName>
+		<finalName>jtpd-core</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>

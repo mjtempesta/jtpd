@@ -64,7 +64,7 @@
  </build>
 
   <modules>
-    <module>jtpd.model</module>
+    <module>jtpd.corel</module>
     <module>jtpd.web</module>
     <module>jtpd.conf</module>
   </modules>
