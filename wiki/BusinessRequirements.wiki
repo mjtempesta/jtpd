@@ -1,0 +1,12 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Hikaye ve onun alt görevleri şeklinde giriş yapılacaktır.
+
+= Details =
+
+  # *Story 1 : Yazı Girişi*
+    * *Description :* 
+    # *Task 1 :* ????
+    # *Task 2 :* ????
