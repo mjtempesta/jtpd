@@ -6,7 +6,25 @@ Hikaye ve onun alt görevleri şeklinde giriş yapılacaktır.
 
 = Details =
 
-  # *Story 1 : Yazı Girişi*
-    * *Description :* 
-    # *Task 1 :* ????
-    # *Task 2 :* ????
+  # *Story : İçerik Girişi*
+    * *Description : * Yazı,sunum,haber,örnek gibi bir içerik girişi 
+      # *Task : * Yazı girişi, güncelleme, silme
+      # *Task : * Yazının adminlerce onaylanması
+      # *Task : * Yazıların listelenmesi, filitrelenmesi
+      # *Task : * Yazıların puanlandırılması
+  # *Story : Yorum Girişi*
+    * *Description : * Yazılara yorum yapılması 
+      # *Task : * Yorum girişi, güncelleme, silme
+      # *Task : * Yorumun adminlerce onaylanması
+      # *Task : * Yorumların yazılardan bağımsızca istendiğinde listelenmesi (more şeklinde)
+  # *Story : Kullanıcılar*
+    * *Description : * Kullanıcılarının yönetimi
+      # *Task : * Kullanıcı oluşturma, profil güncelleme, silme
+      # *Task : * Kullanıcıların ve bilgilerinin adminlerce onaylanması
+      # *Task : * Kullanıcıların seviyelendirilmesi haklarının tanımı
+  # *Story : Etkinlikler*
+    * *Description : * Etkinlerin yönetimi
+      # *Task : * Etkinlik oluşturma, zaman ve yer bilgilerinin girişi,güncellemesi, iptali
+      # *Task : * Katılımcı bilgilerinin belirlenmesi
+      # *Task : * Etkinliğe ait dökümanların sunumu
+      # *Task : * Katılımcı yorum ve değerlendirmesi
