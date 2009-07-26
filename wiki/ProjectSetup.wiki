@@ -19,13 +19,9 @@ MySql Portu *3306* olmalıdır.
 Uygulama için MySql Kullanıcısı eklenmeli:
 
 mysql> CREATE USER 'jtpd'@'localhost' IDENTIFIED BY 'jtpd1234';
-mysql> GRANT SELECT,INSERT,UPDATE,DELETE,EXECUTE
-    ->     ON jtpd.*
-    ->     TO 'jtpd'@'localhost';
+mysql> GRANT SELECT,INSERT,UPDATE,DELETE,EXECUTE ON jtpd.* TO 'jtpd'@'localhost';
 
 Liquibase için MySql Kullanıcısı eklenmeli (BKZ:jtpd.core/pom.xml):
 
 mysql> CREATE USER 'liquibase'@'localhost' IDENTIFIED BY 'liquibase1234';
-mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,INDEX,ALTER,CREATE_VIEW,CREATE_ROUTINE,ALTER_ROUTINE,EXECUTE
-    ->     ON jtpd.*
-    ->     TO 'liquibase'@'localhost';
+mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,INDEX,ALTER,CREATE_VIEW,CREATE_ROUTINE,ALTER_ROUTINE,EXECUTE ON jtpd.* TO 'liquibase'@'localhost';
