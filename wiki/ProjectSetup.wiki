@@ -16,4 +16,16 @@ Windows sistemlerde  "windows\system32\drivers\etc\hosts" dosyasına ve  Linux s
 
 MySql Portu *3306* olmalıdır.
 
-MySql username ve pass 
+Uygulama için MySql Kullanıcısı eklenmeli:
+
+mysql> CREATE USER 'jtpd'@'localhost' IDENTIFIED BY 'jtpd1234';
+mysql> GRANT SELECT,INSERT,UPDATE,DELETE,EXECUTE
+    ->     ON jtpd.*
+    ->     TO 'jtpd'@'localhost';
+
+Liquibase için MySql Kullanıcısı eklenmeli:
+
+mysql> CREATE USER 'liquibase'@'localhost' IDENTIFIED BY 'liquibase1234';
+mysql> GRANT SELECT,INSERT,UPDATE,DELETE,EXECUTE
+    ->     ON jtpd.*
+    ->     TO 'liquibase'@'localhost';
