@@ -1,3 +1,19 @@
 #summary One-sentence summary of this page.
 
 = 1. Projenin SVN'den çekimi =
+
+[http://code.google.com/p/jtpd/source/checkout SOURCE] bölümündeki yönergelere uyularak projeyi makinanıza indirebilirsiniz. İndirilen kodları Eclipse üzerinde kullanımı için Eclipse üzerinde Package Explorer görüntüsü üzerinde sağ tıklayıp *import-->maven project" seçip açılan pencerede ana pom.xml'i içeren dizin gösterilir. Tanınan bütün pom.xml'ler seçilerek proje import edilir. Eklenen proje ve submoduller üzerine sağ tıklayıp *Team-->Share Project* diyerek SVN Repository'sine bağlantı kurulur.
+
+Yada Eclipse üzerinden SVN Repository tanımlayarak buradan proje seçilir ve checkout edilir.
+
+= 2. Projenin çalıştırılması =
+
+Şu anda jtpd.core modülü içerisinde Spring, Hibernate konfigurasyonları bulunmaktadır. Projenin Eclipse'e import edilmesi sırasında *jtpd-->project_conf* dizini altında *shared launch* konfigurasyon dosyaları otomatik olarak Debug ve Run altına eklenir. Bu launch'lar ile jtpd.core uygulaması çalıştırılabilir.
+
+= 3. Veritabanının Kurulması =
+
+Windows sistemlerde  "windows\system32\drivers\etc\hosts" dosyasına ve  Linux sistemlerde "/etc/hosts" dosyasına  *127.0.0.1 db.jtpd.org* ifadesi eklenmelidir.
+
+MySql Portu *3306* olmalıdır.
+
+MySql username ve pass 
