@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.8"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.8
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.8.xsd">
+    <changeSet author="tdiler" id="jtpd-1">
+    	<comment>for test</comment>
+    	<sql>
+			CREATE TABLE `JTPD`.`STUDENT` (
+			  `ID` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+			  `FIRSTNAME` VARCHAR(45) NOT NULL,
+			  `LASTNAME` VARCHAR(45) NOT NULL,
+			  `AGE` INT,
+			  PRIMARY KEY (`ID`)
+			)
+    	</sql>
+    </changeSet>
+    <changeSet author="tdiler" id="jtpd-2">
+    	<comment>for test</comment>
+    	<sql>
+			CREATE TABLE `JTPD`.`TEACHER` (
+			  `ID` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+			  `FIRSTNAME` VARCHAR(45) NOT NULL,
+			  `LASTNAME` VARCHAR(45) NOT NULL,
+			  PRIMARY KEY (`ID`)
+			)
+    	</sql>
+    </changeSet>
+</databaseChangeLog>
