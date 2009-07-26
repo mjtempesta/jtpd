@@ -70,8 +70,8 @@
     </bean> 
 	<bean id="dataSource" class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource" destroy-method="close">
         <property name="url" value="jdbc:mysql://db.jtpd.org:3306/JTPD" />
-        <property name="user" value="root" />
-        <property name="password" value="root" />
+        <property name="user" value="jtpd" />
+        <property name="password" value="jtpd1234" />
     </bean>
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>

@@ -147,8 +147,8 @@
 			<changeLogFile>src/main/resources/liquibase-changelog.xml</changeLogFile>
 			<driver>com.mysql.jdbc.Driver</driver>
 			<url>jdbc:mysql://db.jtpd.org:3306/JTPD</url>
-			<username>root</username>
-			<password>root</password>
+			<username>liquibase</username>
+			<password>liquibase1234</password>
 		</configuration>
 		<executions>
 			<execution>
