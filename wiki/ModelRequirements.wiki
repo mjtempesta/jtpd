@@ -83,6 +83,35 @@ tanımlamaların değiştirilmesi gerekmektedir.
 == JTPD MODEL TASARIMLARI ==
 
 === User ve Story Modelleri ==
+||USER||
+||Column Name||Type||
+||ID||Integer||PK||
+||USERNAME||VARCHAR(45)||||
+||PASSWORD||VARCHAR(45)||||
+||FIRSTNAME||VARCHAR(45)||||
+||LASTNAME||VARCHAR(45)||||
+||EMAIL||VARCHAR(45)||||
+||PHONE||VARCHAR(45)||||
+
+||USER_INFO||
+||Column Name||Type||||
+||CREATEDTIME||DATETIME||||
+||APPROVALMESSAGE||VARCHAR(255)||||
+||APPROVEDTIME||DATETIME||||
+||APPROVEDBY||INT||FK(USER-->ID)||
+
+||STORY||
+||Column Name||Type||
+||ID||Integer||PK||
+||AUTHOR_ID||INT||FK(USER-->ID)||
+||TITLE||VARCHAR(150)||||
+||BODY||MEDIUMTEXT||||
+||TYPE||ENUM('ARTICLE','NEWS','ADVERTISE','ANNOUNCEMENT')||||
+||CREATEDTIME||DATETIME||
+||STATUS||ENUM('ONWAITING','ONCHECKING','PUBLISHED','REJECTED')||DEFAULT('ONWAITING')||
+||LOOKEDBY||INT||FK(USER-->ID)||
+
+
 
 
 Add your content here.  Format your content with:
