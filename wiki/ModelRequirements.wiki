@@ -93,7 +93,7 @@ tanımlamaların değiştirilmesi gerekmektedir.
 ||EMAIL||VARCHAR(45)||||
 ||PHONE||VARCHAR(45)||||
 
-||USER_INFO||
+||USER_EXTRA||
 ||Column Name||Type||||
 ||CREATEDTIME||DATETIME||||
 ||APPROVALMESSAGE||VARCHAR(255)||||
