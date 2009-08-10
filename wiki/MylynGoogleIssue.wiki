@@ -4,6 +4,8 @@
 
 Eclipse Mylyn'a google code issue repository'sini eklemek
 
+Orjinal sayfası : http://code.google.com/p/jtpd/wiki/MylynGoogleIssue?ts=1249907422&updated=MylynGoogleIssue
+
 
 = Details =
 The instructions I previously posted to set up Mylyn to work with Google Code do not seem to work with Eclipse 3.4 (Ganymede). Luckily, readers of the previous post have kindly left comments with updated instructions on how to make this tool work again (many thanks to Christopher Barber, RoSt, Sergey Kolos and LI Daobing.)
