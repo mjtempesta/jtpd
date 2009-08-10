@@ -93,5 +93,10 @@
 			ON UPDATE NO ACTION)
 			ENGINE = InnoDB</sql>
 	</changeSet>
-
+	<changeSet author="tdiler" id="jtpd-6">
+			<comment>for jtpd-1 issue</comment>
+			<sql>
+				ALTER TABLE `JTPD`.`STORY` ADD COLUMN `LOOKEDTIME` DATETIME AFTER `LOOKEDBY` 
+			</sql>
+	</changeSet>
 </databaseChangeLog>
