@@ -58,6 +58,9 @@
         <property name="annotatedClasses">
             <list>
                 <value>org.jtpd.domain.model.Student</value>
+                <value>org.jtpd.domain.model.User</value>
+                <value>org.jtpd.domain.model.UserExtra</value>
+                <value>org.jtpd.domain.model.Story</value>
             </list>
         </property>
 

@@ -43,7 +43,7 @@
 	</changeSet>
 	<changeSet author="tdiler" id="jtpd-4">
 		<comment>for jtpd-1 issue</comment>
-		<sql>CREATE TABLE IF NOT EXISTS `JTPD`.`USER_INFO` (
+		<sql>CREATE TABLE IF NOT EXISTS `JTPD`.`USER_EXTRA` (
 			`ID` INT NOT NULL ,
 			`CREATEDTIME` DATETIME NOT NULL ,
 			`APPROVALMESSAGE` VARCHAR(255) NULL ,

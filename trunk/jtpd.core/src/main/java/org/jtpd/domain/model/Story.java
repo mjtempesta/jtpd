@@ -7,9 +7,13 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -17,29 +21,62 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name="STORY")
+@Table(name = "STORY")
 public class Story extends GenericModel<Integer> {
 
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3014010314406939738L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private Integer id;
-	@Column(name = "AUTHOR")
+	@ManyToOne
+	@JoinColumn(name = "AUTHOR")
 	private User author;
 	@Column(name = "TITLE")
 	private String title;
 	@Column(name = "BODY")
 	private String body;
 	@Column(name = "TYPE")
+	@Enumerated(EnumType.STRING)
 	private StoryType type;
 	@Column(name = "CREATEDTIME")
 	private Date createdTime;
 	@Column(name = "STATUS")
+	@Enumerated(EnumType.STRING)
 	private StoryStatus status;
 	@Column(name = "LOOKEDBY")
-	private User lookedBy;
+	private Integer lookedBy;
 	@Column(name = "LOOKEDTIME")
 	private Date lookedTime;
+
+	public Story(User author) {
+		super();
+		this.author = author;
+	}
+	
+	@Override
+	public Integer getPK() {
+		return this.id;
+	}
+
+	@Override
+	protected void setPK(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getLookedBy() {
+		return lookedBy;
+	}
+
+	public void setLookedBy(Integer lookedBy) {
+		this.lookedBy = lookedBy;
+	}
+
 
 	public User getAuthor() {
 		return author;
@@ -89,30 +126,12 @@ public class Story extends GenericModel<Integer> {
 		this.status = status;
 	}
 
-	public User getLookedBy() {
-		return lookedBy;
-	}
-
-	public void setLookedBy(User lookedBy) {
-		this.lookedBy = lookedBy;
-	}
-
 	public Date getLookedTime() {
 		return lookedTime;
 	}
 
 	public void setLookedTime(Date lookedTime) {
 		this.lookedTime = lookedTime;
-	}
-
-	@Override
-	public Integer getPK() {
-		return this.id;
-	}
-
-	@Override
-	protected void setPK(Integer id) {
-		this.id = id;
 	}
 
 }
