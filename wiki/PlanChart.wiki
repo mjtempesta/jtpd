@@ -1,3 +1,4 @@
 ||SAYFA||SORUMLU KISI||TAHMINI SURE||GERCEKLESTIGI SURE||
 ||Hikaye listeleme sayfası||Taner||||||
 ||Ana sablonun Wicket'a tanımlanması||Altuğ||||||
+||Hikaye Giriş sayfası||Ozan||||||
