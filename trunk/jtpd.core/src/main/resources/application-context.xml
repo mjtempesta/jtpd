@@ -57,10 +57,16 @@
         
         <property name="annotatedClasses">
             <list>
-                <value>org.jtpd.domain.model.Student</value>
-                <value>org.jtpd.domain.model.User</value>
-                <value>org.jtpd.domain.model.UserExtra</value>
-                <value>org.jtpd.domain.model.Story</value>
+				<value>org.jtpd.domain.model.Customer</value>
+				<value>org.jtpd.domain.model.Jobs</value>
+				<value>org.jtpd.domain.model.Activities</value>
+				<value>org.jtpd.domain.model.ActivityCustomer</value>
+				<value>org.jtpd.domain.model.TrainingNames</value>
+				<value>org.jtpd.domain.model.User</value>
+				<value>org.jtpd.domain.model.Story</value>
+				<value>org.jtpd.domain.model.Comment</value>
+				<value>org.jtpd.domain.model.Tag</value>
+				<value>org.jtpd.domain.model.Category</value>
             </list>
         </property>
 
