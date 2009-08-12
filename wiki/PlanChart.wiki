@@ -1,4 +1,6 @@
-||SAYFA||SORUMLU KISI||TAHMINI SURE||GERCEKLESTIGI SURE||
+||SAYFA||SORUMLU KISI||TAHMINI SURE||KALAN SURE||GERCEKLESTIGI SURE||
 ||Hikaye listeleme sayfası||Taner||||||
 ||Ana sablonun Wicket'a tanımlanması||Altuğ||||||
 ||Hikaye Giriş sayfası||Ozan||||||
+||Entity Beanlerin taşınması ve Generic yapıya geçirilmesi||Taner||1h||0h||1h||
+||Engine'lerin Dao olarak taşınması ve Generic yapıya geçirilmesi||Taner||3h||2h||||
