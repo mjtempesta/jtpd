@@ -5,6 +5,9 @@ package org.jtpd.domain.model;
 
 import java.io.Serializable;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
@@ -20,6 +23,9 @@ public abstract class GenericModel<PK extends Serializable> implements Serializa
 	 */
 	private static final long serialVersionUID = 8223081406221272129L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private PK id;
 	
 	/**
 	 * default constructor
@@ -32,7 +38,7 @@ public abstract class GenericModel<PK extends Serializable> implements Serializa
 	 * @param id
 	 */
 	public GenericModel(PK id){
-		this.setPK(id);
+		this.setId(id);
 	}
 	
 	/**
@@ -40,13 +46,15 @@ public abstract class GenericModel<PK extends Serializable> implements Serializa
 	 * to bypass usage of setter method.
 	 * @param id
 	 */
-	@Transient
-	protected abstract void setPK(PK id);
+	public void setId(PK id){
+		this.id = id;
+	}
 
 	/**
 	 * @return
 	 */
-	@Transient
-	public abstract PK getPK();
+	public PK getId(){
+		return this.id;
+	}
 
 }
