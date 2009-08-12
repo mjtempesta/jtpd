@@ -14,6 +14,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.jtpd.db.HibernateSessionFactory;
 import org.jtpd.domain.model.Story;
@@ -123,33 +124,30 @@ public class StoryDAO extends GenericDAO<Integer, Story> implements IStoryDAO {
     	}
     }
 
-    public void undoSelectedStoryFromThisAdmin(User admin, long storyId) {
-        Session session = null;
-        session = HibernateSessionFactory.openSession();
-        HibernateSessionFactory.beginTransaction();
-        Story story = (Story) session.get(Story.class, storyId);
-        story.setAdminId(Constants.NO_ADMIN_YET);
-        session.saveOrUpdate(story);
-
+    // TODO User admin method icerisinde kullanýlmýyor
+    public void undoSelectedStoryFromThisAdmin(User admin, Integer storyId) {
+    	Query updateQuery = this.getSession().createQuery("update "+Story.class.getName()+" set adminId = :id where id = (:storyId)");
+    	updateQuery.setParameter("id", Constants.NO_ADMIN_YET);
+    	updateQuery.setParameter("storyId", storyId);
+    	int countAffectedRow = updateQuery.executeUpdate();
+    	if(countAffectedRow == 0 && storyId !=null ){
+    		logger.warn("There is a problem on making story["+storyId+"] to free");
+    	} else {
+    		logger.debug("Status of story["+storyId+"] is free");
+    	}
     }
 
-    public void publishTheStory(User admin, long storyId) {
-        Session session = null;
-        session = HibernateSessionFactory.openSession();
-        HibernateSessionFactory.beginTransaction();
-        Story story = (Story) session.get(Story.class, storyId);
+    public void publishTheStory(User admin, Integer storyId) {
+        Story story = this.find(storyId);
         story.setIsOnline(Constants.ONLINE);
         story.setPublishedDate(DateUtils.getNow());
-
+        this.saveOrUpdate(story);
     }
 
-    public void rejectTheStory(User admin, long storyId) {
-        Session session = null;
-        session = HibernateSessionFactory.openSession();
-        HibernateSessionFactory.beginTransaction();
-        Story story = (Story) session.get(Story.class, storyId);
+    public void rejectTheStory(User admin, Integer storyId) {
+        Story story = this.find(storyId);
         story.setIsOnline(Constants.REJECT);
-
+        this.saveOrUpdate(story);
     }
 
     /***************************************************************************
@@ -157,11 +155,8 @@ public class StoryDAO extends GenericDAO<Integer, Story> implements IStoryDAO {
      *
      * @return
      */
-    public Story readStoryForCheck(User admin, int storyId) {
-        Session session = null;
-        session = HibernateSessionFactory.openSession();
-
-        Story story = (Story) session.get(Story.class, storyId);
+    public Story readStoryForCheck(User admin, Integer storyId) {
+    	Story story = this.find(storyId);
         if (story == null) {
             return null;
         }
@@ -175,25 +170,17 @@ public class StoryDAO extends GenericDAO<Integer, Story> implements IStoryDAO {
     }
 
     public void saveStoryAsAdmin(User admin, Story story) {
-        Session session = null;
-        session = HibernateSessionFactory.openSession();
-        HibernateSessionFactory.beginTransaction();
-
         if (admin.getIsAdmin() == Constants.ADMIN && story.getAdminId() == admin.getId()) {
-            session.saveOrUpdate(story);
-
+            this.saveOrUpdate(story);
         }
     }
 
     // called for Main.jsf
-    public List getAllStories() {
-        Session session = null;
-        session = HibernateSessionFactory.openSession();
-
-        Query query = session.createQuery("select story from Story story where story.isOnline =:online order by story.publishedDate desc");
-        query.setInteger("online", Constants.ONLINE);
-        List result = query.list();
-        return result;
+    public List<Story> getAllStories() {
+    	Criteria criteria = this.getSession().createCriteria(Story.class);
+    	criteria.add(Restrictions.eq("isOnline", Constants.ONLINE));
+    	criteria.addOrder( Order.desc("publishedDate") );
+    	return this.findByCriteria(criteria);
     }
 
     // read the story from TheStory.jsf (main page)
