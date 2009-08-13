@@ -17,6 +17,7 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.jtpd.db.HibernateSessionFactory;
+import org.jtpd.domain.model.Comment;
 import org.jtpd.domain.model.Story;
 import org.jtpd.domain.model.User;
 import org.jtpd.exceptions.CantEditException;
@@ -184,84 +185,17 @@ public class StoryDAO extends GenericDAO<Integer, Story> implements IStoryDAO {
     }
 
     // read the story from TheStory.jsf (main page)
+    // TODO burada story nullsa veya hata oluþursa yeni story oluþturuluyor.
     public Story getTheStory(long storyId) {
-
-        try {
-            Session session = null;
-            session = HibernateSessionFactory.openSession();
-
-            Query query = session.createQuery("select story from Story story where story.id=:storyId and story.isOnline=:online ");
-            query.setLong("storyId", storyId);
-            query.setInteger("online", Constants.ONLINE);
-            List result = query.list();
-
-            if (result != null && result.size() > 0) {
-                return ((Story) result.get(0));
-            } else {
-                return new Story();
-            }
-        } catch (Exception exception) {
-             return new Story();
-        }
-
-
-    }
-
-    public void approveComments(List<Comment> comments) {
-        Session hibernateSession = HibernateSessionFactory.openSession();
-        hibernateSession.beginTransaction();
-        for (Comment c : comments) {
-            c.setApproved(true);
-        }
-    }
-
-    public void deleteComments(List<Comment> comments) {
-        Session hibernateSession = HibernateSessionFactory.openSession();
-        hibernateSession.beginTransaction();
-        for (Comment c : comments) {
-            hibernateSession.delete(c);
-        }
-    }
-
-    public void saveComment(Comment comment) {
-        try {
-            Session session = HibernateSessionFactory.openSession();
-            HibernateSessionFactory.beginTransaction();
-            session.save(comment);
-            HibernateSessionFactory.commitTransaction();
-        } catch (Exception ex) {
-            this.logger.error(" " + ex.getMessage());
-        }
-    }
-
-    public List<Comment> getWaitingComments() {
-
-        List<Comment> theList = new ArrayList<Comment>();
-        try {
-            Session session = HibernateSessionFactory.openSession();
-            HibernateSessionFactory.beginTransaction();
-            Query query = session.createQuery("select c from Comment c where c.approved = :approved order by c.date desc");
-            query.setBoolean("approved", false);
-            theList = query.list();
-        } catch (Exception ex) {
-            this.logger.error(" " + ex.getMessage());
-        }
-        return theList;
-    }
-    
-    public List<Comment> getLastComments(int count) {
-
-        List<Comment> theList = new ArrayList<Comment>();
-        try {
-            Session session = HibernateSessionFactory.openSession();
-            HibernateSessionFactory.beginTransaction();
-            Query query = session.createQuery("select c from Comment c where c.approved = :approved order by c.date desc");
-            query.setMaxResults(count);
-            query.setBoolean("approved", true);
-            theList = query.list();
-        } catch (Exception ex) {
-            this.logger.error(" " + ex.getMessage());
-        }
-        return theList;
+    	Criteria criteria = this.getSession().createCriteria(Story.class);
+    	criteria.add(Restrictions.eq("isOnline", Constants.ONLINE));
+    	criteria.add(Restrictions.eq("id", storyId));
+        Story story = (Story) criteria.uniqueResult();
+       if(story == null){
+    	   logger.warn("Any online story is not found with "+storyId+". Create empty one." );
+    	   return new Story();
+       } else {
+    	   return story;
+       }
     }
 }
