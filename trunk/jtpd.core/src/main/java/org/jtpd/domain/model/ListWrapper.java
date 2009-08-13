@@ -3,7 +3,7 @@ package org.jtpd.domain.model;
 import java.util.ArrayList;
 
 // TODO Burasý kullanýlýyor mu? kullnýlýyorsa DTO olarak modellerden ayrýlabilir.
-public class ListWrapper extends ArrayList {
+public class ListWrapper extends ArrayList<ListObject> {
 	
 	/**
 	 * 

@@ -65,5 +65,13 @@ public abstract class GenericDAO<PK extends Serializable, M extends GenericModel
 		this.getSession().persist(model);
 		return model.getId();
 	}
+	
+	/**
+	 * @return
+	 */
+	protected Criteria createCriteria() {
+		Criteria criteria = this.getSession().createCriteria(this.getClazz());
+		return criteria;
+	}
 
 }

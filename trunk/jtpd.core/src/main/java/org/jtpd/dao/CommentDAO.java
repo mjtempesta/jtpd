@@ -3,12 +3,9 @@
  */
 package org.jtpd.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.jtpd.domain.model.Comment;
@@ -52,7 +49,8 @@ public class CommentDAO extends GenericDAO<Integer, Comment> implements IComment
     }
     
     // TODO Max Result Count'a ne gerek var burada
-    public List<Comment> getLastComments(int count) {
+    @SuppressWarnings("unchecked")
+	public List<Comment> getLastComments(int count) {
         Criteria criteria = this.getSession().createCriteria(Comment.class);
         criteria.add(Restrictions.eq("approved", true));
         criteria.addOrder(Order.desc("date"));

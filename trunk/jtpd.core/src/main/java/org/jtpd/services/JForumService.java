@@ -1,25 +1,25 @@
 /**
  * 
  */
-package org.jtpd.dao;
+package org.jtpd.services;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import net.jforum.entities.Topic;
-
-import org.jtpd.util.JForumHelper;
-import org.jtpd.util.JforumDBOperations;
+import org.springframework.stereotype.Component;
 
 /**
- * @author altuga
+ * @author tdiler
  *
  */
-public class JForumEngine {
+@Component
+public class JForumService extends GenericService implements IJForumService {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3875258712289769924L;
+	
 	public List getLastestTopics() throws Exception {
 		return this.getLastestTopics(15);
 	}

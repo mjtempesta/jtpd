@@ -22,5 +22,4 @@ public interface IGenericDAO<PK extends Serializable, M extends GenericModel<PK>
 	public PK saveOrUpdate(M model);
 	
 	public void remove(M model);
-
 }
