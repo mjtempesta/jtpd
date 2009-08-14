@@ -3,14 +3,8 @@
  */
 package org.jtpd.dao;
 
-import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
-import java.util.List;
-
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.jtpd.domain.model.GenericModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,57 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional
 @Repository
-public abstract class GenericDAO<PK extends Serializable, M extends GenericModel<PK>> implements IGenericDAO<PK, M> {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6004201354374961844L;
-	
+public class GenericDAO implements IGenericDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	private Class<M> clazz;
-	
-	@SuppressWarnings("unchecked")
-	public GenericDAO(){
-		this.clazz = (Class<M>) ((ParameterizedType) getClass()
-				.getGenericSuperclass()).getActualTypeArguments()[0];
-	}
-
-	public Session getSession(){
+	protected Session getSession(){
 		return this.sessionFactory.openSession();
 	}
-	
-	public Class<M> getClazz(){
-        return this.clazz;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public M find(PK pk) {
-		return (M)this.getSession().load(this.getClazz(), pk);
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<M> findByCriteria(Criteria criteria) {
-		return criteria.list();
-	}
-
-	public void remove(M model) {
-		this.getSession().delete(model);		
-	}
-
-	public PK saveOrUpdate(M model) {
-		this.getSession().persist(model);
-		return model.getId();
-	}
-	
-	/**
-	 * @return
-	 */
-	protected Criteria createCriteria() {
-		Criteria criteria = this.getSession().createCriteria(this.getClazz());
-		return criteria;
-	}
-
 }

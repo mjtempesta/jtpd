@@ -11,7 +11,7 @@ import org.jtpd.domain.model.Comment;
  * @author tdiler
  *
  */
-public interface ICommentDAO extends IGenericDAO<Integer, Comment> {
+public interface ICommentDAO extends IJTPDGenericDAO<Integer, Comment> {
 
 	public void approveComments(List<Comment> comments);
 

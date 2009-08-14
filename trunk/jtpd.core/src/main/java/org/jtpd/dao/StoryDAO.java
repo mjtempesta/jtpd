@@ -32,7 +32,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class StoryDAO extends GenericDAO<Integer, Story> implements IStoryDAO {
+public class StoryDAO extends JTPDGenericDAO<Integer, Story> implements IStoryDAO {
 
     /**
 	 * 

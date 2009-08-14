@@ -11,7 +11,7 @@ import org.jtpd.domain.model.Activities;
  * @author tdiler
  *
  */
-public interface IActivityDAO extends IGenericDAO<Integer, Activities> {
+public interface IActivityDAO extends IJTPDGenericDAO<Integer, Activities> {
 
 	/**
 	 * 

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
-public class CommentDAO extends GenericDAO<Integer, Comment> implements ICommentDAO {
+public class CommentDAO extends JTPDGenericDAO<Integer, Comment> implements ICommentDAO {
 
 	/**
 	 * 
