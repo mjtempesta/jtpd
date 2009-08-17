@@ -1,13 +1,14 @@
 /**
  * 
  */
-package org.jtpd.services;
+package org.jtpd.services.impl;
 
 import java.util.List;
 
 import org.jtpd.dao.ICommentDAO;
 import org.jtpd.domain.model.Comment;
 import org.jtpd.domain.model.Story;
+import org.jtpd.services.IStoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

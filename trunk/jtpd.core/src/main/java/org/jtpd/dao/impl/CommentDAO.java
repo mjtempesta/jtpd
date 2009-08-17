@@ -1,13 +1,14 @@
 /**
  * 
  */
-package org.jtpd.dao;
+package org.jtpd.dao.impl;
 
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.jtpd.dao.ICommentDAO;
 import org.jtpd.domain.model.Comment;
 import org.jtpd.domain.model.Story;
 import org.springframework.stereotype.Repository;

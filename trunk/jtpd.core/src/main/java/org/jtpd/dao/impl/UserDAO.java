@@ -1,12 +1,13 @@
 /**
  * 
  */
-package org.jtpd.dao;
+package org.jtpd.dao.impl;
 
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.jtpd.dao.IUserDAO;
 import org.jtpd.domain.model.User;
 
 /**

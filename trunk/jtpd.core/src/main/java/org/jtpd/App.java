@@ -1,17 +1,10 @@
 package org.jtpd;
 
-import java.util.Calendar;
 import java.util.Date;
 
-import org.jtpd.daos.idao.IStudentDAO;
-import org.jtpd.daos.idao.IUserDAO;
-import org.jtpd.daos.idao.IUserExtraDAO;
+import org.jtpd.dao.IUserDAO;
 import org.jtpd.domain.model.Story;
-import org.jtpd.domain.model.StoryStatus;
-import org.jtpd.domain.model.StoryType;
-import org.jtpd.domain.model.Student;
 import org.jtpd.domain.model.User;
-import org.jtpd.domain.model.UserExtra;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,7 +39,7 @@ try {
 	Story story = new Story(user);
 	story.setBody("XXX");
 	story.setTitle("YYY");
-	story.setCreatedTime(new Date());
+	story.setCreatedDate(new Date());
 	story.setStatus(StoryStatus.ONWAITING);
 	story.setType(StoryType.ARTICLE);
 	Integer id = studentDAO.saveOrUpdate(student);

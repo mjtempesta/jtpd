@@ -1,7 +1,9 @@
 /**
  * 
  */
-package org.jtpd.services;
+package org.jtpd.services.impl;
+
+import org.jtpd.services.IGenericService;
 
 
 /**

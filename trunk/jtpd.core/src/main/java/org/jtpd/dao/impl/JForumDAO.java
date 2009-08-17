@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jtpd.dao;
+package org.jtpd.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +9,7 @@ import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 import org.hibernate.jdbc.Work;
+import org.jtpd.dao.IJForumDAO;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

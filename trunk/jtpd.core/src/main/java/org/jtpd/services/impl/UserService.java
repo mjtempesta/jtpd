@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jtpd.services;
+package org.jtpd.services.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,6 +16,7 @@ import org.hibernate.Transaction;
 import org.jtpd.dao.IJForumDAO;
 import org.jtpd.dao.IUserDAO;
 import org.jtpd.domain.model.User;
+import org.jtpd.services.IUserService;
 import org.jtpd.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

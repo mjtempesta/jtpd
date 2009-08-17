@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jtpd.services;
+package org.jtpd.services.impl;
 
 import java.util.List;
 
@@ -13,6 +13,7 @@ import org.jtpd.domain.model.Customer;
 import org.jtpd.domain.model.ListObject;
 import org.jtpd.domain.model.ListWrapper;
 import org.jtpd.domain.model.SubList;
+import org.jtpd.services.IActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,7 @@ public class AcitivityService extends GenericService implements
 	@Autowired IActivityCustomerDAO activityCustomerDAO;
 	
 	public ListWrapper getAllActivities() throws Exception {
+		
 			List<Activities> list = activityDAO.getActivityList();
 			ListWrapper listObjects = new ListWrapper();
 			for (Activities ac : list) {

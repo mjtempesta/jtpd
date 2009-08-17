@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jtpd.dao;
+package org.jtpd.dao.impl;
 
 import java.util.Calendar;
 import java.util.List;
@@ -10,6 +10,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.jtpd.dao.IActivityDAO;
 import org.jtpd.domain.model.Activities;
 import org.jtpd.domain.model.ActivityCustomer;
 import org.jtpd.util.DateUtils;
@@ -18,8 +19,7 @@ import org.jtpd.util.DateUtils;
  * @author tdiler
  *
  */
-public class ActivityDAO extends JTPDGenericDAO<Integer, Activities> implements
-		IActivityDAO {
+public class ActivityDAO extends JTPDGenericDAO<Integer, Activities> implements	IActivityDAO {
 
 	/**
 	 * 
@@ -43,8 +43,7 @@ public class ActivityDAO extends JTPDGenericDAO<Integer, Activities> implements
 		
 		if ((trainingCode == 0) && (cityCode == 0)) {
 			// it means that user has just enter the page so list all related activities
-			String startDate = year + "-" + 
-				DateUtils.convertToWantedMonth(Calendar.getInstance().get(Calendar.MONTH)+1)  ;
+			String startDate = year + "-" + DateUtils.convertToWantedMonth(Calendar.getInstance().get(Calendar.MONTH)+1)  ;
 			c.add( Restrictions.ge("startDate", startDate));
 			c.addOrder(Order.asc("startDate"));
 			List<Activities> results = c.list() ;

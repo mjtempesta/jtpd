@@ -1,13 +1,14 @@
 /**
  * 
  */
-package org.jtpd.dao;
+package org.jtpd.dao.impl;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.jtpd.dao.IJTPDGenericDAO;
 import org.jtpd.domain.model.GenericModel;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

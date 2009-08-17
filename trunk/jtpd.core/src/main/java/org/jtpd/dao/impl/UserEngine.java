@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jtpd.dao;
+package org.jtpd.dao.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

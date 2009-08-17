@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jtpd.dao;
+package org.jtpd.dao.impl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +11,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.jtpd.dao.IStoryDAO;
 import org.jtpd.domain.model.Story;
 import org.jtpd.domain.model.User;
 import org.jtpd.exception.CantEditException;
