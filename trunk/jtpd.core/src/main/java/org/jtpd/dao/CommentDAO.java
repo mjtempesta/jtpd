@@ -9,6 +9,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.jtpd.domain.model.Comment;
+import org.jtpd.domain.model.Story;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -54,6 +55,14 @@ public class CommentDAO extends JTPDGenericDAO<Integer, Comment> implements ICom
         Criteria criteria = this.getSession().createCriteria(Comment.class);
         criteria.add(Restrictions.eq("approved", true));
         criteria.addOrder(Order.desc("date"));
+        return (List<Comment>)criteria.list();
+    }
+    
+    @SuppressWarnings("unchecked")
+	public List<Comment> getApprovedComments(Story story) {
+        Criteria criteria = this.getSession().createCriteria(Comment.class);
+        criteria.add(Restrictions.eq("approved", true));
+        criteria.add(Restrictions.eq("story.id", story.getId()));
         return (List<Comment>)criteria.list();
     }
 }

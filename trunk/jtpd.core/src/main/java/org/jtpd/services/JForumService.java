@@ -24,41 +24,42 @@ public class JForumService extends GenericService implements IJForumService {
 		return this.getLastestTopics(15);
 	}
 	
+	// TODO COMMENT KALDIRILACAK
 	public List getLastestTopics(int maxTopic) throws Exception {
-		
-		try {
-		JforumDBOperations.openConnection();
-		
-		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance()
-		.getExternalContext().getRequest();
-
-		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance()
-		.getExternalContext().getResponse();
-
-		request.setAttribute("action", "list");
-		request.setAttribute("module", "recentTopics");
-		JForumHelper.service(request, response);
-		
-		List<Topic> topics = (List)request.getAttribute("topicsForMe");
-		
-		List<Topic> newTopicList = new ArrayList();
-		int count = 0 ;
-		for(Topic topic : topics) {
-			newTopicList.add(topic) ;
-			if (count > maxTopic) {
-				break;
-			}
-			count++;
-		}
-		return newTopicList ;
-		
-		
-		
-		} catch (Exception ex) {
-			throw ex ;
-		} finally {
-			JforumDBOperations.closeConnection();
-		}
+		return null;
+//		try {
+//		JforumDBOperations.openConnection();
+//		
+//		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance()
+//		.getExternalContext().getRequest();
+//
+//		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance()
+//		.getExternalContext().getResponse();
+//
+//		request.setAttribute("action", "list");
+//		request.setAttribute("module", "recentTopics");
+//		JForumHelper.service(request, response);
+//		
+//		List<Topic> topics = (List)request.getAttribute("topicsForMe");
+//		
+//		List<Topic> newTopicList = new ArrayList();
+//		int count = 0 ;
+//		for(Topic topic : topics) {
+//			newTopicList.add(topic) ;
+//			if (count > maxTopic) {
+//				break;
+//			}
+//			count++;
+//		}
+//		return newTopicList ;
+//		
+//		
+//		
+//		} catch (Exception ex) {
+//			throw ex ;
+//		} finally {
+//			JforumDBOperations.closeConnection();
+//		}
 	}
 
 }

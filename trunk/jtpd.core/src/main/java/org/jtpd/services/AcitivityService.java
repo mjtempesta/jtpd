@@ -5,8 +5,7 @@ package org.jtpd.services;
 
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
+import org.jtpd.dao.IActivityCustomerDAO;
 import org.jtpd.dao.IActivityDAO;
 import org.jtpd.domain.model.Activities;
 import org.jtpd.domain.model.ActivityCustomer;
@@ -15,13 +14,13 @@ import org.jtpd.domain.model.ListObject;
 import org.jtpd.domain.model.ListWrapper;
 import org.jtpd.domain.model.SubList;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * @author tdiler
  *
  */
-@Component
+@Service
 public class AcitivityService extends GenericService implements
 		IActivityService {
 
@@ -30,8 +29,9 @@ public class AcitivityService extends GenericService implements
 	 */
 	private static final long serialVersionUID = 5125875227720006523L;
 	
-	@Autowired
-	private IActivityDAO activityDAO;
+	@Autowired IActivityDAO activityDAO;
+	
+	@Autowired IActivityCustomerDAO activityCustomerDAO;
 	
 	public ListWrapper getAllActivities() throws Exception {
 			List<Activities> list = activityDAO.getActivityList();
@@ -60,5 +60,16 @@ public class AcitivityService extends GenericService implements
 			}
 			return listObjects;
 	}
+	
+	
+	public List<ActivityCustomer> getAttendeeList(Integer activityId){
+		return activityCustomerDAO.getAttendeeList(activityId);
+	}
+	
+	
+	public List<Activities> getActivities(int trainingCode, int cityCode, int monthOfTheyear) {
+		return activityDAO.getActivityList(trainingCode, cityCode, monthOfTheyear);
+	}
+
 
 }

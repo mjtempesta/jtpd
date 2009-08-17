@@ -16,25 +16,25 @@ import org.hibernate.Transaction;
 import org.jtpd.dao.IJForumDAO;
 import org.jtpd.dao.IUserDAO;
 import org.jtpd.domain.model.User;
+import org.jtpd.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * @author tdiler
  *
  */
-@Component
+@Service
 public class UserService extends GenericService implements IUserService {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6938803698029526121L;
 	
-	@Autowired
-	private IUserDAO userDAO;
+	@Autowired IUserDAO userDAO;
 	
-	@Autowired
-	private IJForumDAO jforumDAO;
+	@Autowired IJForumDAO jforumDAO;
 	/**
 	 * This method is being called by Thread so we must close the Session
 	 * 

@@ -2,8 +2,8 @@ package org.jtpd.domain.model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,12 +17,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import org.hibernate.Session;
+
 import org.hibernate.annotations.Cascade;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Store;
-import org.jtpd.db.HibernateSessionFactory;
 
 @Entity
 @Table(name = "story")
@@ -72,26 +71,6 @@ public class Story extends GenericModel<Integer> {
         return size;
     }   
 
-    @Transient
-    // TODO CommenService altýna taþýnmalý. Bunun burada ne iþi var!!!
-    public List<Comment> getApprovedComments() {
-        List<Comment> approvedComments = new ArrayList<Comment>();
-
-        try {
-            Session session = HibernateSessionFactory.openSession();
-            session.refresh(this);
-           
-            for (Comment c : getComments()) {
-                if (c.isApproved()) {
-                    approvedComments.add(c);
-                }
-            }
-        } catch (Exception ex) {
-            // do nothing
-        }
-        return approvedComments;
-    }
-    
     @Transient
     // TODO DateUtils altýna taþýnmalý. Bunun burada ne iþi var!!!
     public String getFormattedDate(){

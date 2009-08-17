@@ -3,24 +3,17 @@
  */
 package org.jtpd.dao;
 
-import java.beans.Expression;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.jtpd.db.HibernateSessionFactory;
-import org.jtpd.domain.model.Comment;
 import org.jtpd.domain.model.Story;
 import org.jtpd.domain.model.User;
-import org.jtpd.exceptions.CantEditException;
+import org.jtpd.exception.CantEditException;
 import org.jtpd.util.Constants;
 import org.jtpd.util.DateUtils;
 import org.springframework.stereotype.Repository;
@@ -42,7 +35,7 @@ public class StoryDAO extends JTPDGenericDAO<Integer, Story> implements IStoryDA
 	private Logger logger = Logger.getLogger("appLogger");
 
     public void addNewStory(Story story) throws Exception {
-        Date now = DateUtils.getNow();
+        String now = DateUtils.getNow();
     	if (story.getId() != null && story.getId() > 0) {
             story.setLastEditDate(now);
         } else {

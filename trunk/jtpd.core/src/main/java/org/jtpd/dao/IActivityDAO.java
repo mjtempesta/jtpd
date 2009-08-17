@@ -18,4 +18,6 @@ public interface IActivityDAO extends IJTPDGenericDAO<Integer, Activities> {
 	 */
 	List<Activities> getActivityList();
 
+	public List<Activities> getActivityList(int trainingCode, int cityCode, int monthOfTheyear);
+
 }
