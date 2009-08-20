@@ -4,20 +4,20 @@
 	 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	 version="2.4">
  
-	<display-name>HelloWorld</display-name>
+    <display-name>HelloWorld</display-name>
  
-	<filter>
-		<filter-name>WicketFilter</filter-name>
- 		<filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
-		<init-param>
-			<param-name>applicationClassName</param-name>
-			<param-value>org.jtpd.helloworld.HelloWorldApplication</param-value>
- 		</init-param>
- 	</filter>
+    <filter>
+        <filter-name>WicketFilter</filter-name>
+        <filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+        <init-param>
+            <param-name>applicationClassName</param-name>
+            <param-value>org.jtpd.web.SiteKurulum</param-value>
+        </init-param>
+    </filter>
  
- <filter-mapping>
-  <filter-name>WicketFilter</filter-name>
-	<url-pattern>/*</url-pattern>
- </filter-mapping>
+    <filter-mapping>
+        <filter-name>WicketFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
  
 </web-app>
