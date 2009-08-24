@@ -17,12 +17,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class App {
 
 	public static void main(String[] args) {
-//		try {
-//			ApplicationContext factory = new FileSystemXmlApplicationContext(
-//					"target\\classes\\application-context.xml");
+		try {
+			ApplicationContext factory = new FileSystemXmlApplicationContext(
+					"target\\classes\\application-context.xml");
 //			IStudentDAO studentDAO = (IStudentDAO) factory
 //					.getBean("studentDAO");
-//			IUserDAO userDAO = (IUserDAO) factory.getBean("userDAO");
+			IUserDAO userDAO = (IUserDAO) factory.getBean("userDAO");
 //			IUserExtraDAO userExtraDAO = (IUserExtraDAO) factory
 //					.getBean("userExtraDAO");
 //			Student student = new Student();
@@ -46,8 +46,8 @@ public class App {
 //			Integer userId = userDAO.saveOrUpdate(user);
 //			// userExtraDAO.saveOrUpdate(extra);
 //			System.out.println("id : " + id);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -18,7 +18,6 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.hibernate.annotations.Cascade;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Store;
@@ -50,7 +49,6 @@ public class Story extends GenericModel<Integer> {
     @JoinColumn(name = "userId")
     private User user;
     @OneToMany(mappedBy = "story", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @OrderBy("date desc")
     private List<Comment> comments;
     @ManyToMany(fetch = FetchType.LAZY)

@@ -1,7 +1,9 @@
 <projectDescription>
   <name>jtpd.web</name>
   <comment/>
-  <projects/>
+  <projects>
+    <project>jtpd.core</project>
+  </projects>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>
