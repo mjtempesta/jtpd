@@ -9,11 +9,15 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.jtpd.dao.IActivityCustomerDAO;
 import org.jtpd.domain.model.ActivityCustomer;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author tdiler
  *
  */
+@Repository
+@Transactional
 public class ActivityCustomerDAO extends JTPDGenericDAO<Integer, ActivityCustomer> implements
 		IActivityCustomerDAO {
 	

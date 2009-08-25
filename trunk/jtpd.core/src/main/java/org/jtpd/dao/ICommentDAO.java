@@ -5,8 +5,6 @@ package org.jtpd.dao;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 import org.jtpd.domain.model.Comment;
 import org.jtpd.domain.model.Story;
 
@@ -26,7 +24,6 @@ public interface ICommentDAO extends IJTPDGenericDAO<Integer, Comment> {
 
 	public List<Comment> getLastComments(int count);
 
-	@SuppressWarnings("unchecked")
 	public List<Comment> getApprovedComments(Story story);
 
 }

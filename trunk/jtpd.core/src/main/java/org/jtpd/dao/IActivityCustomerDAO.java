@@ -13,7 +13,6 @@ import org.jtpd.domain.model.ActivityCustomer;
  */
 public interface IActivityCustomerDAO extends IJTPDGenericDAO<Integer, ActivityCustomer> {
 
-	@SuppressWarnings("unchecked")
 	public List<ActivityCustomer> getAttendeeList(Integer activityId);
 
 }

@@ -19,7 +19,6 @@ public interface IActivityService extends IGenericService {
 
 	public ListWrapper getAllActivities() throws Exception;
 
-	@SuppressWarnings("unchecked")
 	public List<ActivityCustomer> getAttendeeList(Integer activityId);
 
 }

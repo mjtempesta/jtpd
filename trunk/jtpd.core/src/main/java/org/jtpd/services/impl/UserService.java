@@ -3,23 +3,14 @@
  */
 package org.jtpd.services.impl;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.jtpd.dao.IJForumDAO;
 import org.jtpd.dao.IUserDAO;
 import org.jtpd.domain.model.User;
 import org.jtpd.services.IUserService;
 import org.jtpd.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**

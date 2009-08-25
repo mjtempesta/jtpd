@@ -9,11 +9,15 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.jtpd.dao.IUserDAO;
 import org.jtpd.domain.model.User;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author tdiler
  *
  */
+@Repository
+@Transactional
 public class UserDAO extends JTPDGenericDAO<Integer,User> implements IUserDAO {
 
 	/**

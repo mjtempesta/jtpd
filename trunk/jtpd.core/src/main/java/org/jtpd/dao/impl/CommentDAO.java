@@ -12,12 +12,14 @@ import org.jtpd.dao.ICommentDAO;
 import org.jtpd.domain.model.Comment;
 import org.jtpd.domain.model.Story;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author tdiler
  *
  */
 @Repository
+@Transactional
 public class CommentDAO extends JTPDGenericDAO<Integer, Comment> implements ICommentDAO {
 
 	/**

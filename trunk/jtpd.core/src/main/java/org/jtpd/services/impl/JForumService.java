@@ -3,7 +3,6 @@
  */
 package org.jtpd.services.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.jtpd.services.IJForumService;

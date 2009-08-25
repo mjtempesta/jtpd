@@ -3,8 +3,6 @@
  */
 package org.jtpd.services;
 
-import java.util.List;
-
 import org.jtpd.domain.model.User;
 
 /**
