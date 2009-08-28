@@ -11,12 +11,14 @@ import org.jtpd.domain.model.Story;
 import org.jtpd.services.IStoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author tdiler
  *
  */
 @Service
+@Transactional
 public class StoryService extends GenericService implements IStoryService {
 
 	/**

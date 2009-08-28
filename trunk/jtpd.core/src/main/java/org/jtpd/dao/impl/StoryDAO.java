@@ -33,7 +33,7 @@ public class StoryDAO extends JTPDGenericDAO<Integer, Story> implements IStoryDA
 	 */
 	private static final long serialVersionUID = 6045226641371244116L;
 	
-	private Logger logger = Logger.getLogger("appLogger");
+	public Logger logger = Logger.getLogger("appLogger");
 
     public void addNewStory(Story story) throws Exception {
         String now = DateUtils.getNow();

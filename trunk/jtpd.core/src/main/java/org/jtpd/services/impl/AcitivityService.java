@@ -16,12 +16,14 @@ import org.jtpd.domain.model.SubList;
 import org.jtpd.services.IActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author tdiler
  *
  */
 @Service
+@Transactional
 public class AcitivityService extends GenericService implements
 		IActivityService {
 

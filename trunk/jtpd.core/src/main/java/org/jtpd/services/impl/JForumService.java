@@ -7,12 +7,14 @@ import java.util.List;
 
 import org.jtpd.services.IJForumService;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author tdiler
  *
  */
 @Component
+@Transactional
 public class JForumService extends GenericService implements IJForumService {
 
 	/**

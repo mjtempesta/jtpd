@@ -17,8 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
  * @author tdiler
  *
  */
-@Transactional
 @Repository
+@Transactional
 public class JForumDAO extends GenericDAO implements IJForumDAO {
 	private Logger logger = Logger.getLogger(JForumDAO.class);
 	

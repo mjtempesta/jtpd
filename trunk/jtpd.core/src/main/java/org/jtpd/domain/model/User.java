@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity 
 @Table(name="user")
@@ -70,6 +71,6 @@ public class User extends GenericModel<Integer> {
 
 	public void setCanSendEmail(int canSendEmail) {
 		this.canSendEmail = canSendEmail;
-	} 
+	}
 
 }

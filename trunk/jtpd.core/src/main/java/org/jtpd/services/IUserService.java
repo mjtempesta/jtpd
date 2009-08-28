@@ -3,6 +3,7 @@
  */
 package org.jtpd.services;
 
+import org.jtpd.domain.model.Story;
 import org.jtpd.domain.model.User;
 
 /**
@@ -24,5 +25,9 @@ public interface IUserService extends IGenericService {
 	public void setEmailGettingChoice(User user, int choice);
 
 	public void changePassword(String emailAddress, String newPassword);
+
+	public void writeAStory(Integer userId, Story story);
+
+	public User findUser(Integer userId);
 
 }

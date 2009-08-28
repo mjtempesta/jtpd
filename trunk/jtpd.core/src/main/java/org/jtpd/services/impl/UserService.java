@@ -3,30 +3,53 @@
  */
 package org.jtpd.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.jtpd.dao.IJForumDAO;
 import org.jtpd.dao.IUserDAO;
+import org.jtpd.domain.model.Story;
 import org.jtpd.domain.model.User;
 import org.jtpd.services.IUserService;
 import org.jtpd.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author tdiler
  *
  */
 @Service
+@Transactional
 public class UserService extends GenericService implements IUserService {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6938803698029526121L;
 	
-	@Autowired IUserDAO userDAO;
+	@Autowired
+	public IUserDAO userDAO;
 	
 	@Autowired IJForumDAO jforumDAO;
+	
+	public User findUser(Integer userId){
+		return userDAO.find(userId);
+	}
+	
+	public void writeAStory(Integer authorId, Story story){
+		User author = userDAO.find(authorId);
+		story.setUser(author);
+		List<Story> stories = author.getStories();
+		if(stories == null){
+			stories = new ArrayList<Story>();
+		}
+		stories.add(story);
+		author.setStories(stories);
+		userDAO.saveOrUpdate(author);
+	}
+	
+	
 	/**
 	 * This method is being called by Thread so we must close the Session
 	 * 

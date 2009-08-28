@@ -14,13 +14,13 @@ import org.springframework.transaction.annotation.Transactional;
  * @author tdiler
  *
  */
-@Transactional
 @Repository
+@Transactional
 public class GenericDAO implements IGenericDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	protected Session getSession(){
-		return this.sessionFactory.openSession();
+		return this.sessionFactory.getCurrentSession();
 	}
 }

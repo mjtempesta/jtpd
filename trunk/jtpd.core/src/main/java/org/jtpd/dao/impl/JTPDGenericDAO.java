@@ -17,8 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
  * @author tdiler
  *
  */
-@Transactional
 @Repository
+@Transactional
 public abstract class JTPDGenericDAO<PK extends Serializable, M extends GenericModel<PK>> extends GenericDAO implements IJTPDGenericDAO<PK, M> {
 	
 	/**
@@ -31,7 +31,7 @@ public abstract class JTPDGenericDAO<PK extends Serializable, M extends GenericM
 	@SuppressWarnings("unchecked")
 	public JTPDGenericDAO(){
 		this.clazz = (Class<M>) ((ParameterizedType) getClass()
-				.getGenericSuperclass()).getActualTypeArguments()[0];
+				.getGenericSuperclass()).getActualTypeArguments()[1];
 	}
 	
 	public Class<M> getClazz(){
@@ -53,7 +53,7 @@ public abstract class JTPDGenericDAO<PK extends Serializable, M extends GenericM
 	}
 
 	public PK saveOrUpdate(M model) {
-		this.getSession().persist(model);
+		this.getSession().saveOrUpdate(model);
 		return model.getId();
 	}
 	
