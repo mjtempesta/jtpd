@@ -7,6 +7,8 @@ package org.jtpd.web;
 import org.apache.wicket.Page;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
+import org.jtpd.web.page.StoryFormPage;
+import org.jtpd.web.page.StoryTablePage;
  
 public class SiteKurulum extends WebApplication
 {    
@@ -19,6 +21,8 @@ public class SiteKurulum extends WebApplication
 	protected void init() {
 		super.init();
 		addComponentInstantiationListener(new SpringComponentInjector(this));
+		mountBookmarkablePage("/story/entry", StoryFormPage.class);
+		mountBookmarkablePage("/story/list", StoryTablePage.class);
 	}
 
 	@Override

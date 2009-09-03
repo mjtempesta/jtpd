@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="trainingnames")
+// TODO TrainingNames diye bir sýnýf niye olusturuldu. Bunu direct Activities altýnda tanýmlasak olmuyor muydu?
 public class TrainingNames extends GenericModel<Integer>{
 
 	/**

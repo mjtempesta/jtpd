@@ -17,7 +17,7 @@ public interface IStoryDAO extends IJTPDGenericDAO<Integer, Story> {
 
 	public void addNewStory(Story story) throws Exception;
 
-	public List<Story> listMyStories(User user) throws Exception;
+	public List<Story> listMyStories(User user);
 
 	public Story getTheStory(User user, int storyId, boolean justForAdminRead);
 

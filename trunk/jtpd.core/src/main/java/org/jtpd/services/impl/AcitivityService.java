@@ -32,7 +32,8 @@ public class AcitivityService extends GenericService implements
 	 */
 	private static final long serialVersionUID = 5125875227720006523L;
 	
-	@Autowired IActivityDAO activityDAO;
+	@Autowired
+	public IActivityDAO activityDAO;
 	
 	@Autowired IActivityCustomerDAO activityCustomerDAO;
 	
@@ -73,6 +74,10 @@ public class AcitivityService extends GenericService implements
 	
 	public List<Activities> getActivities(int trainingCode, int cityCode, int monthOfTheyear) {
 		return activityDAO.getActivityList(trainingCode, cityCode, monthOfTheyear);
+	}
+	
+	public List<Activities> getAcitivityList(){
+		return activityDAO.getActivityList();
 	}
 
 

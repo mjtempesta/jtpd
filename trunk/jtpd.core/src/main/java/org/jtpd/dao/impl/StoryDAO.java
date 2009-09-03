@@ -46,13 +46,9 @@ public class StoryDAO extends JTPDGenericDAO<Integer, Story> implements IStoryDA
         logger.debug("Story with identifier "+story.getId()+ " has been saved.");
     }
 
-    public List<Story> listMyStories(User user) throws Exception {
-        // TODO USE ASSERTION
-    	if (user == null) {
-            throw new Exception("Kullanici yok");
-        }
+    public List<Story> listMyStories(User user) {
     	Criteria criteria = this.getSession().createCriteria(Story.class);
-    	criteria.add(Restrictions.eq("user", user.getId()));
+    	criteria.add(Restrictions.eq("user.id", user.getId()));
     	return this.findByCriteria(criteria);
     }
 

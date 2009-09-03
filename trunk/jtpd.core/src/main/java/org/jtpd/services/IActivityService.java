@@ -21,4 +21,6 @@ public interface IActivityService extends IGenericService {
 
 	public List<ActivityCustomer> getAttendeeList(Integer activityId);
 
+	public List<Activities> getAcitivityList();
+
 }

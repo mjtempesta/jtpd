@@ -1,0 +1,27 @@
+<wicket:panel>
+
+This page demonstrates a very basic DataView. The implementation is exactly the same as ListView except IDataProvider is used to provide data instead of a list.
+<br/><br/>
+<div id="actionPanel" align="right">
+	<a href="write story">write story</a>
+</div>
+<table cellspacing="0" class="dataview">
+	<tr>
+		<th>Id</th>
+		<th>Title</th>
+		<th>Created Date</th>
+		<th>Status</th>
+		<th>Published Date</th>
+		<th>Actions</th>
+	</tr>
+	<tr wicket:id="simple">
+		<td><span wicket:id="id">[id]</span> </td>
+		<td><span wicket:id="title">[title]</span></td>
+		<td><span wicket:id="createdDate">[createdDate]</span></td>
+		<td><span wicket:id="status">[status]</span></td>
+		<td><span wicket:id="publishedDate">[publishedDate]</span></td>
+		<td><span wicket:id="actions">[actions]</span></td>
+	</tr>
+</table>
+
+</wicket:panel>

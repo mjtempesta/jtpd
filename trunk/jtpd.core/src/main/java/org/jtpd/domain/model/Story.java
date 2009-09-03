@@ -57,8 +57,40 @@ public class Story extends GenericModel<Integer> {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryId")
     private Category category;
+    @Column(name="DELETED")
+    private boolean deleted;
+    @Column(name="DELETEDBY")
+    private Integer deletedBy;
 
-    @Transient
+    /**
+	 * @return the deleted
+	 */
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	/**
+	 * @param deleted the deleted to set
+	 */
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+
+	/**
+	 * @return the deletedBy
+	 */
+	public int getDeletedBy() {
+		return deletedBy;
+	}
+
+	/**
+	 * @param deletedBy the deletedBy to set
+	 */
+	public void setDeletedBy(int deletedBy) {
+		this.deletedBy = deletedBy;
+	}
+
+	@Transient
     public int getCommentsSize() {
         int size = 0;
         for (Comment c : getComments()) {
