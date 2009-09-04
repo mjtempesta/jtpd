@@ -28,7 +28,7 @@ import org.jtpd.web.page.StoryFormPage;
  * @author tdiler
  *
  */
-public class StoryAjaxTable extends Panel {
+public class StoryAjaxTablePanel extends Panel {
 	@SpringBean
 	private IStoryService storyService;
 	@SpringBean
@@ -69,8 +69,8 @@ public class StoryAjaxTable extends Panel {
 				{
 					final Story selected = (Story)getParent().getDefaultModelObject();
 
-					StoryAjaxTable.this.replaceWith(new ConfirmMessagePanel<Story>(
-							StoryAjaxTable.this.getId(), "are you sure", 
+					StoryAjaxTablePanel.this.replaceWith(new ConfirmMessagePanel<Story>(
+							StoryAjaxTablePanel.this.getId(), "are you sure", 
 							new CompoundPropertyModel<Story>(new LoadableDetachableModel<Story>(){
 								protected Story load() {
 									return storyService.getStory(selected.getId());
@@ -80,13 +80,13 @@ public class StoryAjaxTable extends Panel {
 						
 						@Override
 						protected void onCancel() {
-							this.replaceWith(StoryAjaxTable.this);
+							this.replaceWith(StoryAjaxTablePanel.this);
 						}
 
 						@Override
 						protected void onConfirm() {
 							storyService.delete(getModel().getObject());
-							this.replaceWith(StoryAjaxTable.this);
+							this.replaceWith(StoryAjaxTablePanel.this);
 						}
 					});
 
@@ -95,7 +95,7 @@ public class StoryAjaxTable extends Panel {
 		}
 	}
 	
-	public StoryAjaxTable(String id) {
+	public StoryAjaxTablePanel(String id) {
 		super(id);
 		User user = userService.findUser(71);
 		List<Story> storyList = storyService.getStories(user);

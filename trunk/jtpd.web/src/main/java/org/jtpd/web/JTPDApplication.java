@@ -10,7 +10,7 @@ import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.jtpd.web.page.StoryFormPage;
 import org.jtpd.web.page.StoryTablePage;
  
-public class SiteKurulum extends WebApplication
+public class JTPDApplication extends WebApplication
 {    
 	
 

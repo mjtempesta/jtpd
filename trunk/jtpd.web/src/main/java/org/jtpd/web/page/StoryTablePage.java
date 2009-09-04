@@ -4,7 +4,7 @@
 package org.jtpd.web.page;
 
 import org.jtpd.web.AnaSayfa;
-import org.jtpd.web.panel.StoryAjaxTable;
+import org.jtpd.web.panel.StoryAjaxTablePanel;
 
 /**
  * @author tdiler
@@ -12,6 +12,6 @@ import org.jtpd.web.panel.StoryAjaxTable;
  */
 public class StoryTablePage extends AnaSayfa {
 	public StoryTablePage(){
-		add(new StoryAjaxTable("storyTable"));
+		add(new StoryAjaxTablePanel("storyTable"));
 	}
 }

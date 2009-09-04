@@ -28,7 +28,7 @@ import org.jtpd.services.IUserService;
  * @author tdiler
  *
  */
-public class StoryForm extends Panel {
+public class StoryFormPanel extends Panel {
 	private static final long serialVersionUID = 8231140493238467690L;
 
 	@SpringBean
@@ -40,7 +40,7 @@ public class StoryForm extends Panel {
 	
 	private Integer userId = 71;
 	
-	public StoryForm(String id){
+	public StoryFormPanel(String id){
 		super(id);
 		add(new __StoryForm("storyForm", new CompoundPropertyModel<Story>(
 				new LoadableDetachableModel<Story>() {
@@ -51,7 +51,7 @@ public class StoryForm extends Panel {
 					}
 				})));
 	}
-	public StoryForm(String id, final Story story) {
+	public StoryFormPanel(String id, final Story story) {
 		super(id);
 		add(new __StoryForm("storyForm", new CompoundPropertyModel<Story>(
 				new LoadableDetachableModel<Story>() {
@@ -62,7 +62,7 @@ public class StoryForm extends Panel {
 					}
 				})));
 	}
-	public StoryForm(String id, final Integer storyId) {
+	public StoryFormPanel(String id, final Integer storyId) {
 		super(id);
 		add(new __StoryForm("storyForm", new CompoundPropertyModel<Story>(
 				new LoadableDetachableModel<Story>() {

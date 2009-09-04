@@ -59,6 +59,6 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="wicketApplication" class="org.jtpd.web.SiteKurulum" />
+    <bean id="wicketApplication" class="org.jtpd.web.JTPDApplication" />
 </beans>
 
