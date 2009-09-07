@@ -13,15 +13,18 @@ import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
 import org.apache.wicket.model.AbstractReadOnlyModel;
-import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.LoadableDetachableModel;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.jtpd.domain.model.Story;
 import org.jtpd.domain.model.User;
 import org.jtpd.services.IStoryService;
 import org.jtpd.services.IUserService;
 import org.jtpd.util.Constants;
+import org.jtpd.web.confirmbox.ConfirmMessagePanel;
+import org.jtpd.web.confirmbox.JTPDMessage;
+import org.jtpd.web.confirmbox.MessageButton;
+import org.jtpd.web.confirmbox.JTPDMessage.TYPE;
 import org.jtpd.web.page.StoryFormPage;
 
 /**
@@ -68,27 +71,26 @@ public class StoryAjaxTablePanel extends Panel {
 				public void onClick()
 				{
 					final Story selected = (Story)getParent().getDefaultModelObject();
-
-					StoryAjaxTablePanel.this.replaceWith(new ConfirmMessagePanel<Story>(
-							StoryAjaxTablePanel.this.getId(), "are you sure", 
-							new CompoundPropertyModel<Story>(new LoadableDetachableModel<Story>(){
-								protected Story load() {
-									return storyService.getStory(selected.getId());
-								}
-							})) {
-						
-						
+					JTPDMessage message = new JTPDMessage(TYPE.WARNING, "jtpd.confirmpanel.story.delete.title", "jtpd.confirmpanel.story.delete.body", null);
+					MessageButton messageButton = new MessageButton("label.no"){
 						@Override
-						protected void onCancel() {
+						public void onClick() {
 							this.replaceWith(StoryAjaxTablePanel.this);
 						}
-
+					};
+					MessageButton messageButton2 = new MessageButton("label.yes", new Model(selected)){
 						@Override
-						protected void onConfirm() {
-							storyService.delete(getModel().getObject());
+						public void onClick() {
+							storyService.delete((Story)getAffectedModel().getObject());
 							this.replaceWith(StoryAjaxTablePanel.this);
 						}
-					});
+					};
+					
+					message.addButton(messageButton);
+					message.addButton(messageButton2);
+					
+					StoryAjaxTablePanel.this.replaceWith(new ConfirmMessagePanel( 
+							StoryAjaxTablePanel.this.getId(), message ));
 
 				}
 			});
