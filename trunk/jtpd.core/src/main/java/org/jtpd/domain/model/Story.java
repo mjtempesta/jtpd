@@ -21,6 +21,7 @@ import javax.persistence.Transient;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Store;
+import org.jtpd.util.Constants;
 
 @Entity
 @Table(name = "story")
@@ -40,7 +41,7 @@ public class Story extends GenericModel<Integer> {
     private String lastEditDate;
     private String publishedDate;
     private String closedDate;
-    private int isOnline;
+    private int isOnline = Constants.OFFLINE_EDIT_MODE;
     private int approved;
     private int adminId;
     private int activityId = 0;

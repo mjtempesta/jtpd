@@ -188,4 +188,5 @@ public class StoryDAO extends JTPDGenericDAO<Integer, Story> implements IStoryDA
     	   return story;
        }
     }
+
 }

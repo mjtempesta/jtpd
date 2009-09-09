@@ -42,25 +42,19 @@ public class StoryFormPanel extends Panel {
 	
 	public StoryFormPanel(String id){
 		super(id);
-		add(new __StoryForm("storyForm", new CompoundPropertyModel<Story>(
-				new LoadableDetachableModel<Story>() {
-					private static final long serialVersionUID = 1L;
-
-					protected Story load() {
-						return new Story();
-					}
-				})));
+		add(new __StoryForm("storyForm", new CompoundPropertyModel<Story>(new Story())));
+//				new LoadableDetachableModel<Story>() {
+//					private static final long serialVersionUID = 1L;
+//
+//					protected Story load() {
+//						return ;
+//					}
+//				})));
 	}
 	public StoryFormPanel(String id, final Story story) {
 		super(id);
-		add(new __StoryForm("storyForm", new CompoundPropertyModel<Story>(
-				new LoadableDetachableModel<Story>() {
-					private static final long serialVersionUID = 1L;
-
-					protected Story load() {
-						return story;
-					}
-				})));
+		CompoundPropertyModel<Story> model = new CompoundPropertyModel<Story>(story);
+		add(new __StoryForm("storyForm", model));
 	}
 	public StoryFormPanel(String id, final Integer storyId) {
 		super(id);
@@ -102,7 +96,7 @@ public class StoryFormPanel extends Panel {
 					  System.out.println(story.getContent());
 					  userService.writeAStory(userId, story);
 					}
-				}.setDefaultFormProcessing(false));
+				}.setDefaultFormProcessing(true));
 			
 			add(new Button("cancel") {
 				public void onSubmit() {
