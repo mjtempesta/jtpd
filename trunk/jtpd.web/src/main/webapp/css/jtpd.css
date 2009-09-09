@@ -1,3 +1,11 @@
+.clear-both {
+	clear: both;
+}
+.actionButtonPanel {
+	width: 650px;
+	margin-bottom: 5px;
+	text-align: right;
+}
 .msg_container {
 	font-size:11px;
 	color:#000;
