@@ -1,1 +1,0 @@
-1. org.eclipse.debug.core altýnda proje launch konfigurasyon dosyalarý bulunmaktadýr. Bu klasörü workspace altýndaki .metadata klasörü altýna atýlýrsa Eclipse Launch Listesine eklenmiþ olur.
